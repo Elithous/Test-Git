@@ -1,1 +1,6 @@
 /bin/
+/.idea/
+Zombie-Dice.iml
+/.settings/
+.project
+.classpath
