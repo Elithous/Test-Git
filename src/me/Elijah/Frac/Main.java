@@ -63,11 +63,13 @@ public class Main {
 		int[] frac1 = getFraction("Enter the first fraction");
 		int[] frac2 = getFraction("Enter the second fraction");
 
-		int value = frac1[0] * frac2[0];
-		int num = (frac1[1]) * (frac2[2]);
-		int denom = frac1[2] * frac2[1];
+		//int value = frac1[0] * frac2[0];
+		int num1 = frac1[1] + ((frac1[0]) * frac1[2]);
+		int num2 = frac2[1] + ((frac2[0]) * frac2[2]);
+		int num = (num1) * (frac2[2]);
+		int denom = frac1[2] * num2;
 
-		int[] frac = reduceFraction(new int[] { value, num, denom });
+		int[] frac = reduceFraction(new int[] { 0, num, denom });
 		printFraction(frac1, false);
 		System.out.print("/ ");
 		printFraction(frac2, false);
@@ -79,11 +81,13 @@ public class Main {
 		int[] frac1 = getFraction("Enter the first fraction");
 		int[] frac2 = getFraction("Enter the second fraction");
 
-		int value = frac1[0] * frac2[0];
-		int num = (frac1[1]) * (frac2[1]);
+		//int value = frac1[0] * frac2[0];
+		int num1 = frac1[1] + ((frac1[0]) * frac1[2]);
+		int num2 = frac2[1] + ((frac2[0]) * frac2[2]);
+		int num = (num1) * (num2);
 		int denom = frac1[2] * frac2[2];
 
-		int[] frac = reduceFraction(new int[] { value, num, denom });
+		int[] frac = reduceFraction(new int[] { 0, num, denom });
 		printFraction(frac1, false);
 		System.out.print("* ");
 		printFraction(frac2, false);
@@ -95,10 +99,11 @@ public class Main {
 		int[] frac1 = getFraction("Enter the first fraction");
 		int[] frac2 = getFraction("Enter the second fraction");
 
-		int value = frac1[0] - frac2[0];
-		int num = (frac1[1] * frac2[2]) - (frac2[1] * frac1[2]);
+		int num1 = frac1[1] + ((frac1[0]) * frac1[2]);
+		int num2 = frac2[1] + ((frac2[0]) * frac2[2]);
+		int num = (num1 * frac2[2]) - (num2 * frac1[2]);
 		int denom = frac1[2] * frac2[2];
-		int[] frac = reduceFraction(new int[] { value, num, denom });
+		int[] frac = reduceFraction(new int[] { 0, num, denom });
 		printFraction(frac1, false);
 		System.out.print("- ");
 		printFraction(frac2, false);
@@ -110,11 +115,12 @@ public class Main {
 		int[] frac1 = getFraction("Enter the first fraction");
 		int[] frac2 = getFraction("Enter the second fraction");
 
-		int value = frac1[0] + frac2[0];
-		int num = (frac1[1] * frac2[2]) + (frac2[1] * frac1[2]);
+		int num1 = frac1[1] + ((frac1[0]) * frac1[2]);
+		int num2 = frac2[1] + ((frac2[0]) * frac2[2]);
+		int num = (num1 * frac2[2]) + (num2 * frac1[2]);
 		int denom = frac1[2] * frac2[2];
 
-		int[] frac = reduceFraction(new int[] { value, num, denom });
+		int[] frac = reduceFraction(new int[] { 0, num, denom });
 		printFraction(frac1, false);
 		System.out.print("+ ");
 		printFraction(frac2, false);
@@ -179,7 +185,7 @@ public class Main {
 			if (num % div == 0 && denom % div == 0) {
 				num = num / div;
 				denom = denom / div;
-				div++;
+				//div++;
 			}
 		}
 		return new int[] { value, num, denom };
@@ -196,7 +202,7 @@ public class Main {
 		if (num != 0)
 			System.out.print(num + "/" + denom + " ");
 		if (value == 0 && num == 0)
-			System.out.print("0");
+			System.out.print("0 ");
 		// System.out.println(". Or in decimal it is " + ((double) value + ((double) num
 		// / (double) denom)));
 		if (decimal) {
